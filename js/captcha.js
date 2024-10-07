@@ -1,71 +1,64 @@
-// Selecting necessary DOM elements
-const captchaTextBox = document.querySelector(".captch_box input");
-const refreshButton = document.querySelector(".refresh_button");
-const captchaInputBox = document.querySelector(".captch_input input");
-const message = document.querySelector(".message");
-const submitButton = document.querySelector(".button");
-const form = document.querySelector("form");  // Assuming you have a form element
+document.addEventListener("DOMContentLoaded", function () {
+  const refreshButton = document.querySelector(".refresh_button");
+  const captchaBox = document.querySelector(".captch_box input");
+  const captchaInput = document.querySelector(".captch_input input");
+  const message = document.querySelector(".message");
+  const submitButton = document.querySelector(".submit_button");
 
-// Variable to store generated captcha
-let captchaText = null;
+  let captchaText = "";
 
-// Function to generate captcha
-const generateCaptcha = () => {
-  const randomString = Math.random().toString(36).substring(2, 7);
-  const randomStringArray = randomString.split("");
-  const changeString = randomStringArray.map((char) => (Math.random() > 0.5 ? char.toUpperCase() : char));
-  captchaText = changeString.join(" ");
-  captchaTextBox.value = captchaText;
-  console.log(captchaText);
-};
+  // Function to generate random captcha
+  function generateCaptcha() {
+    const charsArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const length = 6; // Define captcha length
+    let captcha = "";
+    for (let i = 0; i < length; i++) {
+      const randomChar = charsArray[Math.floor(Math.random() * charsArray.length)];
+      captcha += randomChar;
+    }
+    captchaBox.value = captcha;
+    captchaText = captcha; // Store captcha value
+  }
 
-const refreshBtnClick = () => {
+  // Call the function to display captcha on page load
   generateCaptcha();
-  captchaInputBox.value = "";
-  captchaKeyUpValidate();
-};
 
-const captchaKeyUpValidate = () => {
-  // Toggle submit button disabled state based on captcha input field
-  if (captchaInputBox.value) {
-    submitButton.classList.remove("disabled");
-  } else {
+  // Refresh captcha when clicking refresh button
+  refreshButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    generateCaptcha();
+    message.textContent = ""; // Clear the message on refresh
+    message.style.color = "transparent"; // Hide the message initially
+    captchaInput.value = ""; // Clear the captcha input
+    submitButton.disabled = true; // Disable the submit button again
     submitButton.classList.add("disabled");
-  }
+  });
 
-  if (!captchaInputBox.value) message.classList.remove("active");
-};
+  // Handle form submission
+  submitButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent form submission
+    if (captchaInput.value.trim() === captchaText) {
+      message.textContent = "Entered captcha is correct";
+      message.style.color = "green";
 
-// Function to validate the entered captcha
-const validateCaptcha = () => {
-  // Remove spaces from the generated captcha text for validation
-  const formattedCaptcha = captchaText.split(" ").join("");
-  
-  message.classList.add("active");
+      // Redirect to index.html after a short delay
+      setTimeout(function () {
+        window.location.href = "index.html"; // Redirect to index.html
+      }, 1000); // 1 second delay to display the success message
+    } else {
+      message.textContent = "Entered captcha is incorrect";
+      message.style.color = "red";
+    }
+  });
 
-  // Check if the entered captcha text is correct or not
-  if (captchaInputBox.value === formattedCaptcha) {
-    message.innerText = "Entered captcha is correct";
-    message.style.color = "#826afb";
-    return true;
-  } else {
-    message.innerText = "Entered captcha is not correct";
-    message.style.color = "#FF2525";
-    return false;
-  }
-};
-
-// Prevent form submission if captcha is incorrect
-form.addEventListener("submit", (event) => {
-  if (!validateCaptcha()) {
-    event.preventDefault();  // Prevent the form from submitting if captcha is incorrect
-  }
+  // Enable the submit button when captcha input matches the captcha text
+  captchaInput.addEventListener("input", function () {
+    if (captchaInput.value.trim() === captchaText) {
+      submitButton.disabled = false;
+      submitButton.classList.remove("disabled");
+    } else {
+      submitButton.disabled = true;
+      submitButton.classList.add("disabled");
+    }
+  });
 });
-
-// Add event listeners for the refresh button, captchaInputBox, submit button
-refreshButton.addEventListener("click", refreshBtnClick);
-captchaInputBox.addEventListener("keyup", captchaKeyUpValidate);
-submitButton.addEventListener("click", validateCaptcha);
-
-// Generate a captcha when the page loads
-generateCaptcha();

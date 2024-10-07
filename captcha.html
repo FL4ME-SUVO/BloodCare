@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- YouTube - CodingLab -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +14,7 @@
       <div class="container">
         <header>Captcha Generator</header>
         <div class="input_field captch_box">
-          <input type="text" value="" disabled />
+          <input type="text" disabled />
           <button class="refresh_button">
             <i class="fa-solid fa-rotate-right"></i>
           </button>
@@ -24,13 +23,12 @@
           <input type="text" placeholder="Enter captcha" />
         </div>
         <div class="message">Entered captcha is correct</div>
-        <div class="input_field button disabled">
-          <button>Submit Captcha</button>
+        <div class="input_field button">
+          <button type="submit" class="submit_button disabled">Submit Captcha</button>
         </div>
       </div>
-  
     </form>
-    
+
     <script src="js/captcha.js"></script>
   </body>
 </html>

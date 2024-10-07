@@ -74,22 +74,22 @@ header {
 .message {
   font-size: 14px;
   margin: 14px 0;
-  color: #000000;
-  display: none;
+  color: transparent; /* Hidden by default */
 }
-.message.active {
-  display: block;
+.message.success {
+  color: green;
+}
+.message.error {
+  color: red;
 }
 .button button {
   background: #da1212;
   color: #fff;
   cursor: pointer;
   user-select: none;
+  transition: background-color 0.3s;
 }
-.button button:active {
-  transform: scale(0.99);
-}
-.button.disabled {
+.button button:disabled {
   opacity: 0.6;
-  pointer-events: none;
+  cursor: not-allowed;
 }
