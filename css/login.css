@@ -410,4 +410,94 @@ form.sign-in-form {
   position: relative; /* Required for positioning the icon */
 }
 
+.password-requirements {
+  display: none; /* Hidden by default */
+  position: absolute; /* Absolutely positioned within the input field */
+  top: 60px; /* Adjust based on the height of the input */
+  left: 0; /* Align with the left edge of the input */
+  margin-top: 5px; /* Additional spacing */
+  margin-left: 250px;
+  background-color: #fff; /* Background color */
+  border: 1px solid #ccc; /* Border styling */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for a lifted effect */
+  padding: 10px; /* Padding for content */
+  width: 100%; /* Full width of the input field */
+  max-width: 380px; /* Match the input field width */
+  z-index: 999; /* Ensure it appears above other fields */
+  transition: display 0.2s ease-in-out; /* Optional transition for smooth appearance */
+}
+.password-requirements ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
 
+.password-requirements.visible {
+  display: block; /* Show when visible */
+}
+
+.status {
+  margin-left: 10px; /* Space between criteria text and symbol */
+  font-weight: bold; /* Make the symbols stand out */
+}
+
+.valid {
+  color: green; /* Valid criteria text color */
+}
+
+.invalid {
+  color: red; /* Invalid criteria text color */
+}
+
+.valid::before {
+  content: "✔  "; /* Checkmark symbol */
+  color: green; /* Green color for valid */
+}
+
+.invalid::before {
+  content: "✖  "; /* Cross symbol */
+  color: red; /* Red color for invalid */
+}
+.error-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe; /* Light background for contrast */
+  border: 2px solid #f44336; /* Red border to indicate an error */
+  border-radius: 10px;
+  padding: 20px; /* Add some padding for comfort */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Softer shadow for depth */
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  max-width: 400px; /* Limit the width of the popup */
+  text-align: center; /* Center text within the popup */
+}
+
+.error-popup.visible {
+  display: block; /* Show when visible */
+}
+
+#error-message {
+  display: block; /* Ensure the message occupies space */
+  margin-bottom: 15px; /* More space below the message */
+  font-weight: bold; /* Make the message text bold */
+  color: #f44336; /* Red color for error messages */
+}
+
+/* Close Button Styles */
+#error-popup button {
+  background-color: #f44336; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 10px 15px; /* Button padding */
+  font-weight: bold; /* Make button text bold */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#error-popup button:hover {
+  background-color: #d32f2f; /* Darker red on hover for effect */
+}

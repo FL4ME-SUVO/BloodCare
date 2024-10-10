@@ -8,80 +8,80 @@
   <link rel="stylesheet" href="css/login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <title>Sign in & Sign up Form</title>
-
 </head>
 
 <body>
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
+        <!-- Sign-in Form -->
         <form action="captcha.html" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Username or email" required />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="signin-password" />
+            <input type="password" placeholder="Password" id="signin-password" required />
             <i class="far fa-eye eye-icon" id="signin-eye" onclick="togglePassword('signin-password', 'signin-eye')"></i>
           </div>
           <input type="submit" value="Login" class="btn solid" />
+          <!-- Social media signup -->
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
-            <a href="#" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </form>
+        
+        <!-- Sign-up Form -->
         <form action="captcha.html" class="sign-up-form">
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="First name" />
+            <input type="text" placeholder="First name" required />
           </div>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Last name" />
+            <input type="text" placeholder="Last name" required />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" placeholder="Email" required id="signup-email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Create Password" id="signup-password" />
+            <input type="password" placeholder="Create Password" id="signup-password" required />
             <i class="far fa-eye eye-icon" id="signup-eye" onclick="togglePassword('signup-password', 'signup-eye')"></i>
           </div>
+          <div class="password-requirements">
+            <ul id="passwordCriteria">
+              <li class="criteria" id="length">Minimum 8 characters <span class="status"></span></li>
+              <li class="criteria" id="uppercase">At least one uppercase letter <span class="status"></span></li>
+              <li class="criteria" id="lowercase">At least one lowercase letter <span class="status"></span></li>
+              <li class="criteria" id="number">At least one number <span class="status"></span></li>
+              <li class="criteria" id="special">At least one special character <span class="status"></span></li>
+              <li class="criteria" id="noSpaces">No spaces allowed <span class="status"></span></li>
+              <li class="criteria" id="common">Not a common password <span class="status"></span></li>
+              <li class="criteria" id="repeat">No three repeated characters <span class="status"></span></li>
+            </ul>
+          </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Confirm Password" id="confirm-password" />
+            <input type="password" placeholder="Confirm Password" id="confirm-password" required />
             <i class="far fa-eye eye-icon" id="confirm-eye" onclick="togglePassword('confirm-password', 'confirm-eye')"></i>
           </div>
           <input type="submit" class="btn" value="Sign up" />
+          
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
-            <a href="#" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </form>
       </div>
@@ -95,9 +95,7 @@
             Welcome! Join our community by signing up today. Whether you want to donate or receive blood,
             registering is quick and easy. Take the first step toward making a life-saving difference!
           </p>
-          <button class="btn transparent" id="sign-up-btn">
-            Sign up
-          </button>
+          <button class="btn transparent" id="sign-up-btn">Sign up</button>
         </div>
         <img src="img/login.png" class="image" alt="" />
       </div>
@@ -108,16 +106,20 @@
             Welcome back! Log in to access your account, schedule donations, or track your contributions.
             Thank you for being a vital part of our life-saving community!
           </p>
-          <button class="btn transparent" id="sign-in-btn">
-            Sign in
-          </button>
+          <button class="btn transparent" id="sign-in-btn">Sign in</button>
         </div>
         <img src="img/register.png" class="image" alt="" />
       </div>
     </div>
   </div>
-  <script src="js/login.js"></script>
 
+  <!-- Error Popup -->
+  <div id="error-popup" class="error-popup hidden">
+    <span id="error-message">Message goes here</span>
+    <button id="close-popup">Close</button>
+  </div>
+
+  <script src="js/login.js"></script>
 </body>
 
 </html>
