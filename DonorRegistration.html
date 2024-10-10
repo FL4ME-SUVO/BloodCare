@@ -1,99 +1,95 @@
 <!DOCTYPE html>
-<!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!----======== CSS ======== -->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/Registration.css">
-
-    <!----===== Iconscout CSS ===== -->
+    <!-- Iconscout CSS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-    <title>Regisration Form </title>
+    <title>Registration Form</title>
 </head>
 
 <body>
     <div class="container">
         <header>Donor Registration</header>
 
-        <form action="#">
+        <form action="#" id="registrationForm">
             <div class="form first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
-
                     <div class="fields">
                         <div class="input-field">
                             <label>First Name</label>
-                            <input type="text" placeholder="Enter your first name" required>
+                            <input type="text" name="firstName" placeholder="Enter your first name" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>Middle Name</label>
-                            <input type="text" placeholder="Enter your middle name">
+                            <input type="text" name="middleName" placeholder="Enter your middle name">
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Enter your last name" required>
+                            <input type="text" name="lastName" placeholder="Enter your last name" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
-                     
-
-                       
-
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" placeholder="Enter your email" required>
+                            <input type="email" name="email" placeholder="Enter your email" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
-
                         <div class="input-field">
                             <label>Mobile Number</label>
-                            <input type="number" placeholder="Enter mobile number" required>
+                            <input type="tel" name="mobile" placeholder="Enter mobile number" maxlength="10" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>Alternative Mobile Number</label>
-                            <input type="number" placeholder="Enter mobile number">
+                            <input type="tel" name="alternativeMobile" placeholder="Enter alternative mobile number">
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
-
-                        
                     </div>
                 </div>
 
                 <div class="details ID">
                     <span class="title">Identity Details</span>
-
                     <div class="fields">
                         <div class="input-field">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter birth date" required>
+                            <input type="date" name="dob" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>Aadhaar Number</label>
-                            <input type="number" placeholder="Enter ID number" required>
+                            <input type="number" name="aadhaar" placeholder="Enter Aadhaar number" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
-
                         <div class="input-field">
                             <label>Gender</label>
-                            <select required>
+                            <select name="gender" required>
                                 <option disabled selected>Select gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Others</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Others</option>
                             </select>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
-                 
                         <div class="input-field">
                             <label>Age</label>
-                            <input type="number" placeholder="Enter your age" required>
+                            <input type="number" name="age" placeholder="Enter your age" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>Weight</label>
-                            <input type="number" placeholder="Enter your weight" required>
+                            <input type="number" name="weight" placeholder="Enter your weight" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
-                            <label >Please select your blood group</label>
-                            <select  required>
+                            <label>Please select your blood group</label>
+                            <select name="bloodGroup" required>
                                 <option disabled selected>Select Blood Group</option>
                                 <option value="a+">A+</option>
                                 <option value="a-">A-</option>
@@ -105,10 +101,11 @@
                                 <option value="ab-">AB-</option>
                                 <option value="others">Others</option>
                             </select>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                     </div>
 
-                    <button class="nextBtn">
+                    <button type="button" class="nextBtn">
                         <span class="btnText">Next</span>
                         <i class="uil uil-navigator"></i>
                     </button>
@@ -118,53 +115,56 @@
             <div class="form second">
                 <div class="details address">
                     <span class="title">Address Details</span>
-
                     <div class="fields">
                         <div class="input-field">
                             <label>City/Village</label>
-                            <input type="text" placeholder="Enter Your City/Village" required>
+                            <input type="text" name="city" placeholder="Enter Your City/Village" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>District</label>
-                            <input type="text" placeholder="Enter your district" required>
+                            <input type="text" name="district" placeholder="Enter your district" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>State</label>
-                            <input type="text" placeholder="Enter your state" required>
+                            <input type="text" name="state" placeholder="Enter your state" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                         <div class="input-field">
                             <label>Pin Code</label>
-                            <input type="number" placeholder="Enter Pin Code" required>
+                            <input type="number" name="pinCode" placeholder="Enter Pin Code" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
                     </div>
                 </div>
 
                 <div class="details family">
                     <span class="title">Important Details</span>
-
                     <div class="fields">
                         <div class="input-field">
                             <label>Date of appointment</label>
-                            <input type="date" placeholder="Enter Date of appointment" required>
+                            <input type="date" name="appointmentDate" required>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
-
                         <div class="input-field">
                             <label>Do you have any disease?</label>
-                            <select  required>
+                            <select name="disease" required>
                                 <option disabled selected>Select anyone</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
+                            <span class="error-message"></span> <!-- Error message -->
                         </div>
-
                         <div class="input-field">
-                            <label required >Do you want to donate through any Camp or NGO?</label>
-                            <select  required>
+                            <label>Do you want to donate through any Camp or NGO?</label>
+                            <select name="donateThroughCamp" required>
                                 <option disabled selected>Select anyone</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
-                        </div> 
+                            <span class="error-message"></span> <!-- Error message -->
+                        </div>
                     </div>
 
                     <div class="buttons">
@@ -172,8 +172,7 @@
                             <i class="uil uil-navigator"></i>
                             <span class="btnText">Back</span>
                         </div>
-
-                        <button class="sumbit">
+                        <button type="submit" class="sumbit">
                             <span class="btnText">Submit</span>
                             <i class="uil uil-navigator"></i>
                         </button>
