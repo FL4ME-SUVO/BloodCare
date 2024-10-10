@@ -1,12 +1,10 @@
-const form = document.querySelector("form"),
-      nextBtn = form.querySelector(".nextBtn"),
-      backBtn = form.querySelector(".backBtn"),
-      allInputFirst = form.querySelectorAll(".first input, .first select"),
-      allInputSecond = form.querySelectorAll(".second input, .second select");
-
-// Success popup element
-const successPopup = document.getElementById('successPopup');
-const closePopupBtn = document.getElementById('closePopup');
+const form = document.querySelector("#registrationForm"),
+    nextBtn = form.querySelector(".nextBtn"),
+    backBtn = form.querySelector(".backBtn"),
+    allInputFirst = form.querySelectorAll(".first input, .first select"),
+    allInputSecond = form.querySelectorAll(".second input, .second select"),
+    successPopup = document.getElementById('successPopup'),
+    closePopupBtn = document.getElementById('closePopup');
 
 // Clear previous error messages
 function clearErrorMessages(inputs) {
@@ -17,12 +15,13 @@ function clearErrorMessages(inputs) {
     });
 }
 
-// Validation functions
+// Email validation function
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email pattern
     return emailRegex.test(email);
 }
 
+// Function to validate fields
 function isValidName(name) {
     const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
     return nameRegex.test(name);
@@ -56,7 +55,7 @@ nextBtn.addEventListener("click", () => {
         const errorMessage = input.nextElementSibling; // Get the error message element
         if (input.value === "" && input.hasAttribute("required")) {
             errorMessage.textContent = "This field is required."; // Set error message
-            input.classList.add("error"); // Add error class for styling (if needed)
+            input.classList.add("error"); // Add error class for styling
             isValid = false;
         } else if (input.name === "email") {
             if (!isValidEmail(input.value)) {
@@ -64,7 +63,7 @@ nextBtn.addEventListener("click", () => {
                 input.classList.add("error");
                 isValid = false;
             }
-        } else if (input.name === "firstName" || input.name === "lastName" ) {
+        } else if (input.name === "firstName" || input.name === "lastName") {
             if (!isValidName(input.value)) {
                 errorMessage.textContent = "Please enter a valid name (letters only).";
                 input.classList.add("error");
@@ -106,7 +105,7 @@ form.querySelector(".submit").addEventListener("click", (e) => {
         const errorMessage = input.nextElementSibling; // Get the error message element
         if (input.value === "" && input.hasAttribute("required")) {
             errorMessage.textContent = "This field is required."; // Set error message
-            input.classList.add("error"); // Add error class for styling (if needed)
+            input.classList.add("error"); // Add error class for styling 
             isValid = false;
         } else if (input.name === "pinCode") {
             if (!isValidPinCode(input.value)) {
@@ -120,9 +119,6 @@ form.querySelector(".submit").addEventListener("click", (e) => {
     // Additional required fields from the second part of the form
     const gender = form.querySelector('select[name="gender"]');
     const bloodGroup = form.querySelector('select[name="bloodGroup"]');
-    const disease = form.querySelector('select[name="disease"]');
-    const donateThrough = form.querySelector('select[name="donateThroughCamp"]');
-
     // Validate additional required fields
     if (gender.value === "" || gender.value === "Select gender") {
         const errorMessage = gender.nextElementSibling;
@@ -137,29 +133,16 @@ form.querySelector(".submit").addEventListener("click", (e) => {
         bloodGroup.classList.add("error"); // Add error class for styling
         isValid = false;
     }
-
-    if (disease.value === "" || disease.value === "Select anyone") {
-        const errorMessage = disease.nextElementSibling;
-        errorMessage.textContent = "Please select your option."; // Set error message
-        disease.classList.add("error"); // Add error class for styling
-        isValid = false;
-    }
-
-    if (donateThrough.value === "" || donateThrough.value === "Select anyone") {
-        const errorMessage = donateThrough.nextElementSibling;
-        errorMessage.textContent = "Please select your option."; // Set error message
-        donateThrough.classList.add("error"); // Add error class for styling
-        isValid = false;
-    }
-
+    
     if (isValid) {
-        console.log("Form submitted!"); // For demonstration purposes
         successPopup.style.display = 'flex'; // Display the success popup
     }
 });
 
 // Go back to the first section
-backBtn.addEventListener("click", () => form.classList.remove('secActive'));
+backBtn.addEventListener("click", () => {
+    form.classList.remove('secActive');
+});
 
 // Remove error messages on input event
 allInputFirst.forEach(input => {
@@ -183,4 +166,5 @@ allInputSecond.forEach(input => {
 // Close the success popup
 closePopupBtn.addEventListener('click', () => {
     successPopup.style.display = 'none'; // Hide the success popup
+    window.location.href = 'index.html';
 });

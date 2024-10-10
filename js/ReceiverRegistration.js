@@ -175,4 +175,5 @@ allInputSecond.forEach(input => {
 // Close the success popup
 closePopupBtn.addEventListener('click', () => {
     successPopup.style.display = 'none'; // Hide the success popup
+    window.location.href = 'index.html';
 });
