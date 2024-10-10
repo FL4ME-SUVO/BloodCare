@@ -61,7 +61,7 @@ nextBtn.addEventListener("click", () => {
                 input.classList.add("error");
                 isValid = false;
             }
-        } else if (input.name === "firstName" || input.name === "lastName" || input.name === "middleName") {
+        } else if (input.name === "firstName" || input.name === "lastName" ) {
             if (!isValidName(input.value)) {
                 errorMessage.textContent = "Please enter a valid name (letters only).";
                 input.classList.add("error");
