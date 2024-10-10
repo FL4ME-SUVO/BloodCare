@@ -2,7 +2,9 @@ const form = document.querySelector("#receiverRegistrationForm"),
     nextBtn = form.querySelector(".nextBtn"),
     backBtn = form.querySelector(".backBtn"),
     allInputFirst = form.querySelectorAll(".first input, .first select"),
-    allInputSecond = form.querySelectorAll(".second input, .second select");
+    allInputSecond = form.querySelectorAll(".second input, .second select"),
+    successPopup = document.getElementById('successPopup'),
+    closePopupBtn = document.getElementById('closePopup');
 
 // Clear previous error messages
 function clearErrorMessages(inputs) {
@@ -131,11 +133,12 @@ form.querySelector(".submit").addEventListener("click", (e) => {
         bloodGroup.classList.add("error"); // Add error class for styling
         isValid = false;
     }
+    
     // Validate the desired blood type field
     const desiredBloodType = form.querySelector('select[name="desiredBloodType"]');
-    // const desiredBloodTypeErrorMessage = desiredBloodType.nextElementSibling;
+    const desiredBloodTypeErrorMessage = desiredBloodType.nextElementSibling;
 
-    if (desiredBloodType.value === "" || desiredBloodType.value == "Select Blood Type") {
+    if (desiredBloodType.value === "" || desiredBloodType.value === "Select Blood Type") {
         desiredBloodTypeErrorMessage.textContent = "Please select your desired blood type.";
         desiredBloodType.classList.add("error");
         isValid = false;
@@ -143,8 +146,7 @@ form.querySelector(".submit").addEventListener("click", (e) => {
 
     if (isValid) {
         console.log("Form submitted!"); // For demonstration purposes
-        // Here you can add new logic to send data via AJAX or fetch API
-        // form.submit(); // Uncomment to submit the form normally
+        successPopup.style.display = 'flex'; // Display the success popup
     }
 });
 
@@ -168,4 +170,9 @@ allInputSecond.forEach(input => {
             errorMessage.textContent = ''; // Clear error message
         }
     });
+});
+
+// Close the success popup
+closePopupBtn.addEventListener('click', () => {
+    successPopup.style.display = 'none'; // Hide the success popup
 });

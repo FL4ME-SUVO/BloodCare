@@ -10,6 +10,7 @@
     <!-- Iconscout CSS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Registration Form</title>
+
 </head>
 
 <body>
@@ -29,27 +30,27 @@
                         <div class="input-field">
                             <label>Middle Name</label>
                             <input type="text" name="middleName" placeholder="Enter your middle name">
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Last Name</label>
                             <input type="text" name="lastName" placeholder="Enter your last name" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Email</label>
                             <input type="email" name="email" placeholder="Enter your email" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Mobile Number</label>
                             <input type="tel" name="mobile" placeholder="Enter mobile number" maxlength="10" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Alternative Mobile Number</label>
                             <input type="tel" name="alternativeMobile" placeholder="Enter alternative mobile number">
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                     </div>
                 </div>
@@ -60,12 +61,12 @@
                         <div class="input-field">
                             <label>Date of Birth</label>
                             <input type="date" name="dob" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Aadhaar Number</label>
                             <input type="number" name="aadhaar" placeholder="Enter Aadhaar number" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Gender</label>
@@ -75,17 +76,17 @@
                                 <option value="female">Female</option>
                                 <option value="other">Others</option>
                             </select>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Age</label>
                             <input type="number" name="age" placeholder="Enter your age" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Weight</label>
                             <input type="number" name="weight" placeholder="Enter your weight" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Please select your blood group</label>
@@ -100,7 +101,7 @@
                                 <option value="ab+">AB+</option>
                                 <option value="ab-">AB-</option>
                             </select>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                     </div>
 
@@ -118,22 +119,22 @@
                         <div class="input-field">
                             <label>City/Village</label>
                             <input type="text" name="city" placeholder="Enter Your City/Village" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>District</label>
                             <input type="text" name="district" placeholder="Enter your district" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>State</label>
                             <input type="text" name="state" placeholder="Enter your state" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Pin Code</label>
                             <input type="number" name="pinCode" placeholder="Enter Pin Code" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                     </div>
                 </div>
@@ -144,7 +145,7 @@
                         <div class="input-field">
                             <label>Date of appointment</label>
                             <input type="date" name="appointmentDate" required>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Do you have any disease?</label>
@@ -153,7 +154,7 @@
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                         <div class="input-field">
                             <label>Do you want to donate through any Camp or NGO?</label>
@@ -162,7 +163,7 @@
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
-                            <span class="error-message"></span> <!-- Error message -->
+                            <span class="error-message"></span>
                         </div>
                     </div>
 
@@ -171,7 +172,7 @@
                             <i class="uil uil-navigator"></i>
                             <span class="btnText">Back</span>
                         </div>
-                        <button type="submit" class="sumbit">
+                        <button type="submit" class="submit">
                             <span class="btnText">Submit</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -181,7 +182,16 @@
         </form>
     </div>
 
-    <script src="js/DonorRegistration.js"></script>
+    <!-- Success Popup -->
+    <div class="success-popup" id="successPopup">
+        <div class="popup-content">
+            <h2>Successfully Registered!</h2>
+            <p>Your registration has been completed successfully.</p>
+            <button id="closePopup">Close</button>
+        </div>
+    </div>
+<script src="js/DonorRegistration.js"></script>
+   
 </body>
 
 </html>

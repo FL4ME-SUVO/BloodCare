@@ -4,6 +4,10 @@ const form = document.querySelector("form"),
       allInputFirst = form.querySelectorAll(".first input, .first select"),
       allInputSecond = form.querySelectorAll(".second input, .second select");
 
+// Success popup element
+const successPopup = document.getElementById('successPopup');
+const closePopupBtn = document.getElementById('closePopup');
+
 // Clear previous error messages
 function clearErrorMessages(inputs) {
     inputs.forEach(input => {
@@ -13,13 +17,12 @@ function clearErrorMessages(inputs) {
     });
 }
 
-// Email validation function
+// Validation functions
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email pattern
     return emailRegex.test(email);
 }
 
-// Function to validate fields
 function isValidName(name) {
     const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
     return nameRegex.test(name);
@@ -94,7 +97,7 @@ nextBtn.addEventListener("click", () => {
 });
 
 // Validate inputs in the second part before submitting
-form.querySelector(".sumbit").addEventListener("click", (e) => {
+form.querySelector(".submit").addEventListener("click", (e) => {
     e.preventDefault(); // Prevent default form submission
     let isValid = true;
     clearErrorMessages(allInputSecond); // Clear previous error messages
@@ -119,7 +122,7 @@ form.querySelector(".sumbit").addEventListener("click", (e) => {
     const bloodGroup = form.querySelector('select[name="bloodGroup"]');
     const disease = form.querySelector('select[name="disease"]');
     const donateThrough = form.querySelector('select[name="donateThroughCamp"]');
-    
+
     // Validate additional required fields
     if (gender.value === "" || gender.value === "Select gender") {
         const errorMessage = gender.nextElementSibling;
@@ -127,21 +130,21 @@ form.querySelector(".sumbit").addEventListener("click", (e) => {
         gender.classList.add("error"); // Add error class for styling
         isValid = false;
     }
-    
+
     if (bloodGroup.value === "" || bloodGroup.value === "Select Blood Group") {
         const errorMessage = bloodGroup.nextElementSibling;
         errorMessage.textContent = "Please select your option."; // Set error message
         bloodGroup.classList.add("error"); // Add error class for styling
         isValid = false;
     }
-    
+
     if (disease.value === "" || disease.value === "Select anyone") {
         const errorMessage = disease.nextElementSibling;
         errorMessage.textContent = "Please select your option."; // Set error message
         disease.classList.add("error"); // Add error class for styling
         isValid = false;
     }
-    
+
     if (donateThrough.value === "" || donateThrough.value === "Select anyone") {
         const errorMessage = donateThrough.nextElementSibling;
         errorMessage.textContent = "Please select your option."; // Set error message
@@ -151,9 +154,7 @@ form.querySelector(".sumbit").addEventListener("click", (e) => {
 
     if (isValid) {
         console.log("Form submitted!"); // For demonstration purposes
-        // Here you can add logic to process the form
-        // e.g., send data via AJAX or fetch API
-        // form.submit();
+        successPopup.style.display = 'flex'; // Display the success popup
     }
 });
 
@@ -177,4 +178,9 @@ allInputSecond.forEach(input => {
             errorMessage.textContent = ''; // Clear error message
         }
     });
+});
+
+// Close the success popup
+closePopupBtn.addEventListener('click', () => {
+    successPopup.style.display = 'none'; // Hide the success popup
 });
