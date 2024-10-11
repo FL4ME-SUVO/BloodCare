@@ -27,7 +27,13 @@
             <i class="far fa-eye eye-icon" id="signin-eye"
               onclick="togglePassword('signin-password', 'signin-eye')"></i>
           </div>
+
           <input type="submit" value="Login" class="btn solid" />
+          <!-- Forgot Password Link -->
+          <p class="forgot-password">
+            <a href="forget.html" class="forgot-password-link">Forgot Password?</a>
+          </p>
+
           <!-- Social media signup -->
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
@@ -44,11 +50,11 @@
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" id="first-name" placeholder="First name" required />
-        </div>
-        <div class="input-field">
+          </div>
+          <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" id="last-name" placeholder="Last name" required />
-        </div>
+          </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
             <input type="email" placeholder="Email" required id="signup-email" />
@@ -116,18 +122,18 @@
     </div>
   </div>
 
-  
-<!-- Error Popup for Criteria -->
-<div id="error-popup-criteria" class="error-popup">
-  <span id="error-message-criteria">Message goes here</span>
-  <button id="close-popup-criteria">Close</button>
-</div>
 
-<!-- Error Popup for Mismatch -->
-<div id="error-popup-mismatch" class="error-popup">
-  <span id="error-message-mismatch">Message goes here</span>
-  <button id="close-popup-mismatch">Close</button>
-</div>
+  <!-- Error Popup for Criteria -->
+  <div id="error-popup-criteria" class="error-popup">
+    <span id="error-message-criteria">Message goes here</span>
+    <button id="close-popup-criteria">Close</button>
+  </div>
+
+  <!-- Error Popup for Mismatch -->
+  <div id="error-popup-mismatch" class="error-popup">
+    <span id="error-message-mismatch">Message goes here</span>
+    <button id="close-popup-mismatch">Close</button>
+  </div>
 
   <script src="js/login.js"></script>
 </body>

@@ -505,3 +505,18 @@ form.sign-in-form {
 .error-popup button:hover {
   background-color: #d32f2f; /* Darker red on hover */
 }
+.forgot-password {
+  text-align: center; /* Center the link */
+  margin-top: 10px; /* Give some space above the link */
+}
+
+.forgot-password-link {
+  color: #007BFF; /* Standard blue color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.forgot-password-link:hover {
+  color: red; /* Change text color to red on hover */
+  text-decoration: underline; /* Optional: underline on hover */
+}
