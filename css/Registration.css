@@ -48,7 +48,7 @@ body {
 .container form {
     position: relative;
     margin-top: 16px;
-    min-height: 560px;
+    min-height: 570px;
     background-color: #fff;
     overflow: hidden;
 }

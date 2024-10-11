@@ -29,12 +29,12 @@ function isValidName(name) {
 
 function isValidAadhaar(aadhaar) {
     const aadhaarRegex = /^\d{12}$/; // Must be exactly 12 digits
-    return aadhaarRegex.test(aadhaar);
+    return aadhaarRegex.test(aadhaar) && !isAllSameDigits(aadhaar); // Must not be all same digits
 }
 
 function isValidMobile(mobile) {
     const mobileRegex = /^\d{10}$/; // Must be exactly 10 digits
-    return mobileRegex.test(mobile);
+    return mobileRegex.test(mobile) && mobile.charAt(0) !== '0'; // Must not start with '0'
 }
 
 function isValidAge(age) {
@@ -46,11 +46,17 @@ function isValidPinCode(pin) {
     return pinRegex.test(pin);
 }
 
+// Check if all digits are the same (e.g., 111111, 222222)
+function isAllSameDigits(value) {
+    return value.split('').every(digit => digit === value[0]); // Check if all characters are the same
+}
+
 // Validate inputs in the first part before moving to the second part
 nextBtn.addEventListener("click", () => {
     let isValid = true;
     clearErrorMessages(allInputFirst); // Clear previous error messages
 
+    // Validate first section fields
     allInputFirst.forEach(input => {
         const errorMessage = input.nextElementSibling; // Get the error message element
         if (input.value === "" && input.hasAttribute("required")) {
@@ -71,13 +77,22 @@ nextBtn.addEventListener("click", () => {
             }
         } else if (input.name === "aadhaar") {
             if (!isValidAadhaar(input.value)) {
-                errorMessage.textContent = "Aadhaar number must be 12 digits.";
+                errorMessage.textContent = "Aadhaar number must be 12 digits and cannot start with '0'.";
                 input.classList.add("error");
-                isValid = false;
+                isValid = false; 
+            } else if (isAllSameDigits(input.value)) {
+                // Check for all same digits again for specific message
+                errorMessage.textContent = "Aadhaar number must not consist of the same digit.";
+                input.classList.add("error");
+                isValid = false; 
             }
         } else if (input.name === "mobile") {
             if (!isValidMobile(input.value)) {
-                errorMessage.textContent = "Mobile number must be 10 digits.";
+                errorMessage.textContent = "Mobile number must be exactly 10 digits and cannot start with '0'.";
+                input.classList.add("error");
+                isValid = false;
+            } else if (!/^\d+$/.test(input.value)) { // Ensure it contains only digits
+                errorMessage.textContent = "Mobile number must only contain digits.";
                 input.classList.add("error");
                 isValid = false;
             }
@@ -91,7 +106,7 @@ nextBtn.addEventListener("click", () => {
     });
 
     if (isValid) {
-        form.classList.add('secActive');
+        form.classList.add('secActive'); // If valid, move to the second section
     }
 });
 
@@ -101,6 +116,7 @@ form.querySelector(".submit").addEventListener("click", (e) => {
     let isValid = true;
     clearErrorMessages(allInputSecond); // Clear previous error messages
 
+    // Validate second section fields
     allInputSecond.forEach(input => {
         const errorMessage = input.nextElementSibling; // Get the error message element
         if (input.value === "" && input.hasAttribute("required")) {
@@ -119,6 +135,7 @@ form.querySelector(".submit").addEventListener("click", (e) => {
     // Additional required fields from the second part of the form
     const gender = form.querySelector('select[name="gender"]');
     const bloodGroup = form.querySelector('select[name="bloodGroup"]');
+
     // Validate additional required fields
     if (gender.value === "" || gender.value === "Select gender") {
         const errorMessage = gender.nextElementSibling;
@@ -133,7 +150,26 @@ form.querySelector(".submit").addEventListener("click", (e) => {
         bloodGroup.classList.add("error"); // Add error class for styling
         isValid = false;
     }
-    
+
+    // Validate disease selection
+    const disease = form.querySelector('select[name="disease"]');
+    if (disease.value === "" || disease.value === "Select anyone") {
+        const errorMessage = disease.nextElementSibling;
+        errorMessage.textContent = "Please select an option.";
+        disease.classList.add("error"); // Add error class for styling
+        isValid = false;
+    }
+
+    // Validate donation through camp/NGO
+    const donateThroughCamp = form.querySelector('select[name="donateThroughCamp"]');
+    if (donateThroughCamp.value === "" || donateThroughCamp.value === "Select anyone") {
+        const errorMessage = donateThroughCamp.nextElementSibling;
+        errorMessage.textContent = "Please select an option.";
+        donateThroughCamp.classList.add("error"); // Add error class for styling
+        isValid = false;
+    }
+
+    // If everything is valid, show success popup
     if (isValid) {
         successPopup.style.display = 'flex'; // Display the success popup
     }
@@ -166,5 +202,5 @@ allInputSecond.forEach(input => {
 // Close the success popup
 closePopupBtn.addEventListener('click', () => {
     successPopup.style.display = 'none'; // Hide the success popup
-    window.location.href = 'index.html';
+    window.location.href = 'index.html'; // Redirect or refresh
 });
