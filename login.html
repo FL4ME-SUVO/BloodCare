@@ -24,7 +24,8 @@
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="signin-password" required />
-            <i class="far fa-eye eye-icon" id="signin-eye" onclick="togglePassword('signin-password', 'signin-eye')"></i>
+            <i class="far fa-eye eye-icon" id="signin-eye"
+              onclick="togglePassword('signin-password', 'signin-eye')"></i>
           </div>
           <input type="submit" value="Login" class="btn solid" />
           <!-- Social media signup -->
@@ -36,18 +37,18 @@
             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </form>
-        
+
         <!-- Sign-up Form -->
         <form action="captcha.html" class="sign-up-form">
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="First name" required />
-          </div>
-          <div class="input-field">
+            <input type="text" id="first-name" placeholder="First name" required />
+        </div>
+        <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Last name" required />
-          </div>
+            <input type="text" id="last-name" placeholder="Last name" required />
+        </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
             <input type="email" placeholder="Email" required id="signup-email" />
@@ -55,7 +56,8 @@
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Create Password" id="signup-password" required />
-            <i class="far fa-eye eye-icon" id="signup-eye" onclick="togglePassword('signup-password', 'signup-eye')"></i>
+            <i class="far fa-eye eye-icon" id="signup-eye"
+              onclick="togglePassword('signup-password', 'signup-eye')"></i>
           </div>
           <div class="password-requirements">
             <ul id="passwordCriteria">
@@ -72,10 +74,11 @@
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Confirm Password" id="confirm-password" required />
-            <i class="far fa-eye eye-icon" id="confirm-eye" onclick="togglePassword('confirm-password', 'confirm-eye')"></i>
+            <i class="far fa-eye eye-icon" id="confirm-eye"
+              onclick="togglePassword('confirm-password', 'confirm-eye')"></i>
           </div>
           <input type="submit" class="btn" value="Sign up" />
-          
+
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -113,11 +116,18 @@
     </div>
   </div>
 
-  <!-- Error Popup -->
-  <div id="error-popup" class="error-popup hidden">
-    <span id="error-message">Message goes here</span>
-    <button id="close-popup">Close</button>
-  </div>
+  
+<!-- Error Popup for Criteria -->
+<div id="error-popup-criteria" class="error-popup">
+  <span id="error-message-criteria">Message goes here</span>
+  <button id="close-popup-criteria">Close</button>
+</div>
+
+<!-- Error Popup for Mismatch -->
+<div id="error-popup-mismatch" class="error-popup">
+  <span id="error-message-mismatch">Message goes here</span>
+  <button id="close-popup-mismatch">Close</button>
+</div>
 
   <script src="js/login.js"></script>
 </body>
