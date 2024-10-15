@@ -416,7 +416,7 @@ form.sign-in-form {
   top: 60px; /* Adjust based on input field's height */
   left: 0; /* Align left edge with input */
   margin-top: 5px; /* Spacing from input */
-  margin-left: 240px; /* Adjust for the positioning */
+  margin-left: 200px; /* Adjust for the positioning */
   background-color: #fff; /* Background color */
   border: 1px solid #ccc; /* Border */
   border-radius: 10px; /* Rounded corners */
