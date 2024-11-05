@@ -35,11 +35,11 @@ $("#jsGrid2").jsGrid({
     data: clients,
 
     fields: [
-        { name: "Name", type: "text", width: 100, validate: "required" },
-        { name: "Age", type: "number", width: 20 },
-        { name: "Weight", type: "number", width: 30},
-        { name: "Quantity", type: "number", width:30 },
-        { name: "Eligable", type: "checkbox",width:40, title: "Is Eligable", sorting: false },
+        { name: "Name", type: "text", width: 150, validate: "required" },
+        { name: "Age", type: "number", width: 50 },
+        { name: "Weight", type: "number", width: 70},
+        { name: "Quantity", type: "number", width:80 },
+        { name: "Eligable", type: "checkbox", title: "Is Eligable", sorting: false },
         { type: "control" , width:40}
     ]
 });
