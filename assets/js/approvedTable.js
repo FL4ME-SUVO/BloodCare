@@ -28,10 +28,10 @@ $("#jsGrid2").jsGrid({
 
     fields: [
         { name: "Donor Name", type: "text", width: 100, validate: "required" },
-        { name: "Disease", type: "text", width: 50, validate: "required" },
+        { name: "Disease", type: "text", width: 80, validate: "required" },
         { name: "Age", type: "number", width: 50 , validate: "required" },
         { name: "Blood Group", type: "text", width: 50, validate: "required" },
-        { name: "Quantity(Unit)", type: "number", width:80, validate: "required" },
+        { name: "Quantity(Unit)", type: "number", width:100, validate: "required" },
         { name: "Request Date", type: "date", width: 100, validate: "required"  }
        
     ]
