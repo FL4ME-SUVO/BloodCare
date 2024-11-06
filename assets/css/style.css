@@ -1556,7 +1556,7 @@ span.tag.label.label-info {
 /*===========Login page CSS Rules===========*/
 
 .login-body {
-    background: url('../img/tarred.jpeg');
+    background: url('../img/backcover.jpg');
     background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1580,7 +1580,7 @@ span.tag.label.label-info {
 }
 
 .login-box-info {
-    background: #0D47A1;
+    background: #ed0404;
     padding: 45px 30px !important;
     text-align: center;
 }
@@ -1603,23 +1603,23 @@ span.tag.label.label-info {
 }
 
 .btn-theme {
-    background: #dc1919;
+    background: #fb0000;
     color: #fff;
 }
 
 .btn-outline-theme {
-    color: #0D47A1;
-    border: 1px solid #0D47A1;
+    color: #a10d0d;
+    border: 1px solid #a10d0d;
     background: #fff;
 }
 
 .btn-outline-theme:hover {
     color: #fff;
-    background: #0D47A1;
+    background: #ff0202;
 }
 
 .text-theme {
-    color: #0D47A1 !important;
+    color: #ff0000 !important;
 }
 
 
