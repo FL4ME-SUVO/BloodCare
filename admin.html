@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/jsgrid-theme.min.css">
     <link rel="stylesheet" href="assets/css/jsgrid.min.css">
+    <!--Bootstrap Calendar-->
+    <link rel="stylesheet" href="assets/js/calendar/bootstrap_calendar.css">
 
 
     <title>BloodCare Admin</title>
@@ -290,7 +292,8 @@
 
             <!--Content right-->
             <div class="col-sm-9 col-xs-12 content pt-3 pl-0">
-                <h5 class="mb-3"><strong>Hi, Shubhajit!</strong></h5>
+                <h3 class="mb-3"><strong>Hi, Shubhajit!😊🎊</strong></h3>
+
                 <h2 style="text-align: center; margin-top: 30px;margin-bottom: 30px;"><b>Blood Availability</b></h2>
                 <!--Dashboard widget-->
                 <div class="mt-1 mb-3 button-container">
@@ -439,6 +442,122 @@
 
                         </div>
                         <!--/Revenue Graph-->
+                    </div>
+                </div>
+                <div class="mt-1 mb-3 button-container">
+                    <div class="row pl-0">
+                        <!--Dashboard widget Contacts-->
+                        <div class="col-lg-4 col-md-4 col-sm-4 card-pro mb-3">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <h5 class="card-title bc-header">Todos</h5>
+
+                                    <div class="media border-top border-bottom pt-1">
+
+                                        <div class="media-body">
+                                            <p class="bc-description mt-2"><i class="fa fa-pencil"></i> &nbsp; <input
+                                                    type="text" placeholder="Write a Note" style="border: none;"> </p>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="media border-top border-bottom pt-1">
+
+                                        <div class="media-body">
+                                            <p class="bc-description mt-2"><i class="fa fa-pencil"></i> &nbsp;<input
+                                                    type="text" placeholder="Write a Note" style="border: none;"> </p>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="media border-top border-bottom pt-1">
+
+                                        <div class="media-body">
+                                            <p class="bc-description mt-2"><i class="fa fa-pencil"></i> &nbsp;<input
+                                                    type="text" placeholder="Write a Note" style="border: none;"> </p>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="media border-top border-bottom pt-1">
+
+                                        <div class="media-body">
+                                            <p class="bc-description mt-2"><i class="fa fa-pencil"></i> &nbsp;<input
+                                                    type="text" placeholder="Write a Note" style="border: none;"> </p>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="media border-top border-bottom pt-1">
+
+                                        <div class="media-body">
+                                            <p class="bc-description mt-2"><i class="fa fa-pencil"></i> &nbsp; <input
+                                                    type="text" placeholder="Write a Note" style="border: none;"> </p>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="media border-top border-bottom pt-1">
+
+                                        <div class="media-body">
+                                            <p class="bc-description mt-2"><i class="fa fa-pencil"></i> &nbsp;<input
+                                                    type="text" placeholder="Write a Note" style="border: none;"> </p>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Dashboard widget Contacts-->
+
+                        <!--Dashboard Profile card-->
+                        <div class="col-lg-4 col-md-4 col-sm-4 card-pro mb-3">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <div class="media">
+
+                                        <div class="media-body">
+                                            <h6 class="mt-0">Over View</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 mb-4">
+                                        <div class="row user-about">
+                                            <div class="col-sm-4 col-4 border-right" style="text-align: center;">
+                                                <i class="fa-solid fa-users" style="color: red; "></i>
+                                                <h4 style="font-weight: 600;">201023</h4>
+                                                <p>Donors</p>
+                                            </div>
+                                            <div class="col-sm-4 col-4" style="text-align: center;">
+                                                <i class="fa-solid fa-users" style="color: red; "></i>
+                                                <h4 style="font-weight: 600;">12323</h4>
+                                                <p>Receivers</p>
+                                            </div>
+                                            <div class="col-sm-4 col-4 border-left" style="text-align: center;">
+                                                <i class="fa-solid fa-users" style="color: red; "></i>
+                                                <h4 style="font-weight: 600;">121k</h4>
+                                                <p>Total Users</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Dashboard Profile card-->
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 card-calendar mb-3">
+                            <!--Calendar-->
+                            <div class="calendar-wrapper panel-head-info shadow">
+                                <div id="calendar" class="calendar-box"></div>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                            <!--Calendar-->
+                        </div>
+
                     </div>
                 </div>
                 <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
@@ -809,6 +928,8 @@
     <!--Custom Js Script-->
     <script src="assets/js/custom.js"></script>
     <!--Custom Js Script-->
+    <script src="assets/js/calendar/bootstrap_calendar.js"></script>
+    <script src="assets/js/calendar/demo.js"></script>
     <script>
         //Nice select
         $('.bulk-actions').niceSelect();
