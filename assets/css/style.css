@@ -1630,11 +1630,11 @@ span.tag.label.label-info {
 /*========Profile page CSS Rules=========*/
 
 .profile-bg {
-    background-image: url('../img/backcover.jpg');
+    background-image: url('../img/backcover3.jpg');
     background-size: cover;
     background-position-y: 60%;
     background-repeat: no-repeat;
-    height: 150px;
+    height: 220px;
 }
 .profile-bg2 {
     background-image: url('../img/backcover2.jpg');
