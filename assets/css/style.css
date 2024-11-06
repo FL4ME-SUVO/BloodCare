@@ -1636,6 +1636,14 @@ span.tag.label.label-info {
     background-repeat: no-repeat;
     height: 150px;
 }
+.profile-bg2 {
+    background-image: url('../img/backcover2.jpg');
+    background-size: cover;
+    background-position-y: 70%;
+    background-repeat: no-repeat;
+    height: 240px;
+    
+}
 
 .profile-img {
     position: absolute;
