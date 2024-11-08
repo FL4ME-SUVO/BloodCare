@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/login.css" />
-  <link rel="icon" href="blood.ico" type="image/x-icon">   
+  <link rel="icon" href="blood.ico" type="image/x-icon">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <title>Sign in & Sign up Form</title>
@@ -17,7 +17,7 @@
     <div class="forms-container">
       <div class="signin-signup">
         <!-- Sign-in Form -->
-        <form action="captcha.html" class="sign-in-form">
+        <form action="index.html" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
@@ -47,7 +47,7 @@
         </form>
 
         <!-- Sign-up Form -->
-        <form action="captcha.html" class="sign-up-form">
+        <form action="index.html" class="sign-up-form">
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
@@ -136,7 +136,29 @@
     <span id="error-message-mismatch">Message goes here</span>
     <button id="close-popup-mismatch">Close</button>
   </div>
+  <!-- Captcha Modal -->
+  <div id="captcha-modal" class="captcha-modal hidden">
+    <div class="modal-content">
+      <span class="close" id="close-captcha-modal">&times;</span>
+      <h3>Captcha Verification</h3>
+      <p>Please enter the captcha shown below to continue:</p>
+      <div style="display: inline-block;">
+        <input type="text" id="generated-captcha" readonly />
+        <button id="generate-captcha" class="btn"><i class="fa-solid fa-rotate-right"></i></button>
+      </div>
+      <div>
+        <input type="text" id="entered-captcha" placeholder="Enter Captcha" required />
+       
+      </div>
 
+      <p id="status"></p>
+      <div>
+        <button id="check-captcha" class="btn">Check Captcha</button>
+      </div>
+      
+     
+    </div>
+  </div>
   <script src="js/login.js"></script>
 </body>
 
