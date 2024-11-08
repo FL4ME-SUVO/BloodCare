@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const alphabets = "AaBbCcDdEeFfGgHhIiJjJkKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
     const status = document.getElementById('status');
     const captchaModal = document.getElementById("captcha-modal");
-    
+
     // Event listeners for Sign-In and Sign-Up
     sign_up_btn.addEventListener("click", () => {
         container.classList.add("sign-up-mode");
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const criteriaNoSpaces = document.getElementById("noSpaces");
     const criteriaCommon = document.getElementById("common");
     const criteriaRepeat = document.getElementById("repeat");
-    
+
     const commonPasswords = ["password123", "12345678", "qwerty", "letmein", "admin", "welcome"];
 
     signupPassword.addEventListener("input", function () {
@@ -118,7 +118,8 @@ document.addEventListener("DOMContentLoaded", function () {
         captcha = first.toString() + second.toString() + third.toString() + fourth.toString() + fifth.toString() + sixth.toString();
         document.getElementById('generated-captcha').value = captcha;
         document.getElementById("entered-captcha").value = '';
-        status.innerText = "Enter the captcha shown above";
+        // status.innerText = "Enter the captcha shown above";
+        // status.style.color = "black";
     };
 
     // Show captcha modal when sign-up button is clicked
@@ -157,11 +158,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (userValue === captcha) {
             status.innerText = "Correct!! Proceeding...";
+            status.style.color = "green";
             captchaModal.classList.add("hidden");
             document.querySelector(".sign-up-form").submit(); // Uncomment this in real implementation
         } else {
             status.innerText = "Incorrect, please try again!";
+            status.style.color = "red";
             document.getElementById("entered-captcha").value = '';
+            generateCaptcha(); // Automatically regenerate a new captcha
         }
     });
 
@@ -185,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
         errorMessageMismatch.textContent = message;
         errorPopupMismatch.classList.add("visible");
     }
-    
+
     // Close captcha modal on clicking the close button
     document.getElementById("close-captcha-modal").addEventListener("click", () => {
         captchaModal.classList.add("hidden");

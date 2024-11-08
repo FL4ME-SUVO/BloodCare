@@ -545,11 +545,7 @@ form.sign-in-form {
   padding: 0 0.4rem;
   position: relative; /* Required for positioning the eye icon */
 }
-#generate-captcha{
-  width: 47px;
-  height: 40px;
-  border-radius: 10%;
-}
+
 
 #entered-captcha{
   max-width: 300px;
