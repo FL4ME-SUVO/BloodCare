@@ -164,7 +164,9 @@ form .fields .input-field {
 }
 
 form button:hover {
-    background-color: #760000;
+    color: #e90000;
+    border: 2px solid red;
+    background-color: #ffffff;
 }
 
 form button i,
