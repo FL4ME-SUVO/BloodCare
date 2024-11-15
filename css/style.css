@@ -975,3 +975,7 @@
     background: var(--bs-dark) !important;
 }
 /*** copyright end ***/
+#Logo {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
